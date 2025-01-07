@@ -120,10 +120,10 @@ public class RobotContainer {
     drivetrainSubsystem.setDefaultCommand(
         new RunCommand(
             () -> drivetrainSubsystem.drive(
-                -Buttons.forwardSupplier.getAsDouble()*DriveConstants.kMaxSpeedMetersPerSecond,
-                -Buttons.sidewaysSupplier.getAsDouble()*DriveConstants.kMaxSpeedMetersPerSecond,
-                -Buttons.rotateSupplier.getAsDouble()*DriveConstants.kTeleopRotationalSpeed,
-                false),
+                Buttons.forwardSupplier.getAsDouble()*DriveConstants.kMaxSpeedMetersPerSecond,
+                Buttons.sidewaysSupplier.getAsDouble()*DriveConstants.kMaxSpeedMetersPerSecond,
+                Buttons.rotateSupplier.getAsDouble()*DriveConstants.kTeleopRotationalSpeed,
+                true),
             drivetrainSubsystem));
   }
 

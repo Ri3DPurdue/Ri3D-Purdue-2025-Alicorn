@@ -43,6 +43,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
   private final Gyro m_gyro;
 
   // Odometry class for tracking robot pose
+  
   private SwerveDriveOdometry m_odometry;
 
   // Field details that can be viewed in Glass

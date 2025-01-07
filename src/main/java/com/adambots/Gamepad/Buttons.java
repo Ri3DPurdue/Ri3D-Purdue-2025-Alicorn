@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -194,7 +195,7 @@ public class Buttons {
          */
         public static DoubleSupplier forwardSupplier = () -> isJoystickConnected.getAsBoolean()
                         ? applyCurve(ex3dPro.getY(), forwardCurve)
-                        : deaden(primaryJoystick.getLeftY(), GamepadConstants.kDeadZone);
+                        : deaden(primaryJoystick.getLeftY()*-1, GamepadConstants.kDeadZone);
 
         /**
          * getX or LeftX
@@ -207,8 +208,10 @@ public class Buttons {
          * getZ or RightX
          */
         public static DoubleSupplier rotateSupplier = () -> isJoystickConnected.getAsBoolean()
-                        ? applyCurve(ex3dPro.getZ(), rotateCurve)
+                        ? applyCurve(primaryJoystick.getRightX(), rotateCurve)
                         : deaden(primaryJoystick.getRightX(), GamepadConstants.kDeadZone);
+
+
 
         /** Rumble the XBox Controller 
          * @param controller pass the primary or secondary controller to rumble

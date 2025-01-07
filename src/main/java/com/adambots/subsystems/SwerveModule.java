@@ -27,7 +27,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 @SuppressWarnings("unused") //Gets rid of warning when m_position is unused, as m_position is still useful to have when debugging/testing
 public class SwerveModule {
 
-  private static final double POSITION_CONVERSION_FACTOR = 360.0 / 5.36;
+  private static final double POSITION_CONVERSION_FACTOR = 360/21.3 ;
 
   @AutoLog
   public static class SwerveModuleInputs {
@@ -153,12 +153,12 @@ public class SwerveModule {
 
     // Calculate the turning motor output from the turning PID controller.
     double turnOutput = m_turningPIDController.calculate(currentTurnAngle, desiredState.angle.getRadians());
-    if (m_position == ModulePosition.REAR_LEFT){
-    turnOutput = -turnOutput;
-    }
+    //if (m_position == ModulePosition.REAR_LEFT){
+    //turnOutput = -turnOutput;
+    //}
     //Set the motors to the calculated outputs
     m_driveMotor.set(driveOutput);
-    m_turningMotor.set(-turnOutput);
+    m_turningMotor.set(turnOutput);
   }
 
   /** Zeroes the SwerveModule drive encoders. */

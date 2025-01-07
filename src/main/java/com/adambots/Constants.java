@@ -7,6 +7,8 @@
 
 package com.adambots;
 
+import com.revrobotics.RelativeEncoder;
+
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -80,12 +82,12 @@ public final class Constants {
 
         public static final double kFrontLeftEncoderMinVal = 0; //TODO: SET THESE ENCODER OFFSETS
         public static final double kFrontRightEncoderMinVal = 0;
-        public static final double kRearLeftEncoderMinVal = 150;
+        public static final double kRearLeftEncoderMinVal = 0;
         public static final double kRearRightEncoderMinVal = 0;
 
         public static final double kFrontLeftEncoderMaxVal = 4000; //TODO: SET THESE ENCODER OFFSETS
         public static final double kFrontRightEncoderMaxVal = 4000;
-        public static final double kRearLeftEncoderMaxVal = 1300;
+        public static final double kRearLeftEncoderMaxVal = 4000;
         public static final double kRearRightEncoderMaxVal = 4000;
     }
 
@@ -101,7 +103,7 @@ public final class Constants {
 
     public static final class GamepadConstants {
         // deadzone
-        public static final double kDeadZone = 0.15;
+        public static final double kDeadZone = 0.1; //0.15
 
         // Primary Driver Controller Port Number.
         public static final int kPrimaryDriver = RobotMap.kPrimaryControllerPort;
