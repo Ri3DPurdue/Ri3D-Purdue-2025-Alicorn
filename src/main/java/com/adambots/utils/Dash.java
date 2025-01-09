@@ -23,9 +23,7 @@ public class Dash {
     private static ShuffleboardTab debugTab = Shuffleboard.getTab(Constants.kDefaultShuffleboardTab);
 
 
-    private Dash(){
-        throw new UnsupportedOperationException("Not meant to be instantiated. Utility class");
-    }
+
 
     public static void add(String name, DoubleSupplier dval){
         debugTab.addDouble(name, dval);

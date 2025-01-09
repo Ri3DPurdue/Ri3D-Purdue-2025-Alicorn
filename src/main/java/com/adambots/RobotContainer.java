@@ -11,6 +11,10 @@ package com.adambots;
 import com.adambots.Constants.DriveConstants;
 import com.adambots.Gamepad.Buttons;
 import com.adambots.subsystems.DrivetrainSubsystem;
+import com.adambots.subsystems.ArmSubsystem.ArmSubsystem;
+import com.adambots.subsystems.ArmSubsystem.states.armPositionState;
+import com.adambots.subsystems.ArmSubsystem.states.climberState;
+import com.adambots.subsystems.ArmSubsystem.states.intakeState;
 import com.adambots.utils.Dash;
 // import com.pathplanner.lib.auto.AutoBuilder;
 // import com.pathplanner.lib.auto.NamedCommands;
@@ -36,6 +40,7 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final DrivetrainSubsystem drivetrainSubsystem = new DrivetrainSubsystem(RobotMap.swerveModules, RobotMap.gyro);
+  private final ArmSubsystem arm = new ArmSubsystem();
 
   //Creates a SmartDashboard element to allow drivers to select differnt autons
   // private SendableChooser<Command> autoChooser = new SendableChooser<>();
@@ -66,7 +71,20 @@ public class RobotContainer {
   
   private void configureButtonBindings() {
     Buttons.JoystickButton1.onTrue(new InstantCommand(() -> RobotMap.gyro.resetYaw()));
+    Buttons.primaryRB.onTrue(new intakeState(arm, 0.5));
+    Buttons.primaryLB.onTrue(new intakeState(arm, -0.5));
 
+    Buttons.secondaryAButton.onTrue(new armPositionState(arm, 0, 0)); //L1 Switch these and climber to secondary
+    Buttons.secondaryBButton.onTrue(new armPositionState(arm, 0, 0)); //L2
+    Buttons.secondaryYButton.onTrue(new armPositionState(arm, 0, 0)); //L3
+    Buttons.secondaryRB.onTrue(new armPositionState(arm, 0, 0)); //Coral intake
+    Buttons.secondaryRB.onTrue(new intakeState(arm, .5)); //Coral intake
+    Buttons.secondaryLB.onTrue(new armPositionState(arm, 0, 0)); //Algae intake
+    Buttons.secondaryLB.onTrue(new intakeState(arm, .5)); //Algae intake
+
+
+    Buttons.secondaryDPadN.onTrue(new climberState(arm, 1));
+    Buttons.secondaryDPadS.onTrue(new climberState(arm, -1));
     //Debugging and Testing
     // Buttons.JoystickButton4.onTrue(new InstantCommand(() -> drivetrainSubsystem.resetOdometry(new Pose2d())));
     // Buttons.JoystickButton11.onTrue(Commands.deadline(new WaitCommand(1.5), autonCommands.driveTillBumpedCommand()));

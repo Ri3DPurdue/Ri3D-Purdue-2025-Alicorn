@@ -189,4 +189,19 @@ public final class Constants {
         public static final int kDpadWAngle = 270;
         public static final int kDpadNWAngle = 315;
     }
+
+    public static final class ArmConstants{
+        public static final int armMotorID = 4 ;
+        public static final int wristMotorID = 7;
+        public static final int intakeMotorID = 8;
+        public static final int climberMotorID = 12;
+        public static final double ARM_CONTROLLER_P = 0.001;
+        public static final double ARM_CONTROLLER_I = 0.000;
+        public static final double ARM_CONTROLLER_D = 0.000;
+        
+        public static final double WRIST_CONTROLLER_P = 0.001;
+        public static final double WRIST_CONTROLLER_I = 0.000;
+        public static final double WRIST_CONTROLLER_D = 0.000;
+
+    }
 }

@@ -26,14 +26,14 @@ public class RobotMap {
     public static final int kFrontLeftTurningEncoderPort = 0;
     public static final int kFrontRightTurningEncoderPort = 1;
 
-    public static final int kFrontRightTurningMotorPort = 4;
-    public static final int kFrontRightDriveMotorPort = 3;
+    public static final int kFrontRightTurningMotorPort = 3;
+    public static final int kFrontRightDriveMotorPort = 32;
 
     public static final int kRearRightTurningMotorPort = 6;
     public static final int kRearRightDriveMotorPort = 5;
 
-    public static final int kRearLeftTurningMotorPort = 8;
-    public static final int kRearLeftDriveMotorPort = 7;
+    public static final int kRearLeftTurningMotorPort = 33;
+    public static final int kRearLeftDriveMotorPort = 30;
     
     public static final int kFrontLeftTurningMotorPort = 2;
     public static final int kFrontLeftDriveMotorPort = 1;        
